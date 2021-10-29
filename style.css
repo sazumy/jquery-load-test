@@ -1,0 +1,35 @@
+.dynamic-contents {
+  border: solid 2px yellow;
+  height: 100%;
+  margin-bottom: 40px;
+  max-height: 500px;
+  width: 100%;
+}
+
+.outer {
+  align-items: center;
+  border: solid 2px red;
+  display: flex;
+  height: 1500px;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-content {
+  border: solid 2px green;
+  height: 800px;
+  padding: 32px;
+  width: 70%;
+}
+
+.next-button {
+  background-color: brown;
+  color: white;
+  display: block;
+  padding: 16px;
+  text-align: center;
+}
+
+.question {
+  font-size: 200px;
+}

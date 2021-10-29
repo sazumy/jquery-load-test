@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div class="outer">
+    <div class="main-content">
+      テストのタイトルとか見出しとか
+      <div class="dynamic-contents" id="content">
+        <!-- テストの問題 -->
+      </div>
+
+      <div class="next-button" id="next-button">次へ</div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+
+      function arrayShuffle(array) {
+        for(var i = (array.length - 1); 0 < i; i--){
+          // 0〜(i+1)の範囲で値を取得
+          var r = Math.floor(Math.random() * (i + 1));
+          // 要素の並び替えを実行
+          var tmp = array[i];
+          array[i] = array[r];
+          array[r] = tmp;
+        }
+        return array;
+      }
+
+      const numbers = [ 1, 2, 3, 4, 5];
+      const questionOrder = arrayShuffle(numbers);
+      console.log(questionOrder)
+
+      const document = `q${questionOrder[0]}.html`
+      $('#content').load(document);
+
+      let index = 0;
+
+      $('#next-button').on('click', function() {
+        index++;
+        console.log(index)
+        $('#content').load(`q${questionOrder[index]}.html`);
+      })
+    });
+  </script>
+</body>
+</html>
